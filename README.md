@@ -8,7 +8,7 @@
 <body>
 
   <div>
-    <a href="PAG/pagina1.html"><button>Ir para Pága do Nunes </button></a>
+    <a href="PAG/pagina1.html"><button>Ir para Págana do Nunes </button></a>
   </div>
 
   <div>
