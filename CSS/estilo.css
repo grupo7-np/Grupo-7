@@ -1,0 +1,29 @@
+/* Define o fundo da página e a fonte */
+body {
+  background-color: #f0f8ff;
+    font-family: Arial, sans-serif;
+      text-align: center;
+        padding-top: 50px;
+        }
+
+        /* Estilo para as divs que envolvem os botões */
+        div {
+          margin: 20px;
+          }
+
+          /* Estilo dos botões */
+          button {
+            padding: 10px 25px;
+              font-size: 16px;
+                background-color: #007BFF;
+                  color: white;
+                    border: none;
+                      border-radius: 8px;
+                        cursor: pointer;
+                        }
+
+                        /* Efeito ao passar o mouse */
+                        button:hover {
+                          background-color: #0056b3;
+                          }
+                          
