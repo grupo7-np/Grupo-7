@@ -1,1 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portifolio - José Isaac</title>
+  
+  <style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+html{
+    scroll-behavior: smooth;
+}
+
+:root{
+    --primaria: #4f46e5;
+    --secundaria: #7c3aed;
+    --escura: #0f172a;
+    --maisclara: #0a0f1c;
+    --claro: #e2e8f0;
+    --vidro: rgba(255, 255, 255, 0.1);
+
+}
+
+body{
+    background-color: var(--escura);
+    color: var(--claro);
+}
+
+.navegacao{
+    position: fixed;
+    top: 0;
+    background: rgba(15, 23, 42, 0.8);
+    width: 100%;
+    z-index: 100;
+    padding: 1.5rem;
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 3rem;
+}
+
+.menu-link{
+    text-decoration: none;
+    color: var(--claro);
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.menu-link::after{
+    content: '';
+    height: 2px;
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+    transition: width 0.5s ease;
+}
+
+.menu-link:hover::after{
+    width: 100%;
+}
+.cabecalho{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.foto{
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+    border-radius: 50%;
+    border: 4px solid var(--vidro); 
+    animation: flutuar 5s ease-in-out infinite;
+}
+
+h1{
+    font-size: 3.5rem;
+    color: var(--primaria);
+    font-weight: 500;
+    margin: 20px;
+}
+
+.texto{
+    font-size: 1,5rem;
+    color: var(--claro);
+}
+
+.sobre{
+    padding: 6rem 2rem;
+}
+.sobre-titulo{
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+.sobre-caixa{
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 16px;
+    border: 1px solid var(--vidro);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
+
+}
+.sobre-parag{
+    text-align: center;
+    font-size: 1rem;
+}
+
+.projetos, .formulario-contato{
+    padding: 6rem 2rem;
+}
+.projetos-titulo, .contatos-titulo{
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+.projetos-card:hover{
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+    transform: translateY(-10px) scale(1.03);
+}
+
+.projetos-caixa{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.projetos-card{
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--vidro);
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+.projetos-img{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+.inf-projetos{
+    margin-bottom: 5px;
+}
+.parag-projetos{
+    color: rgba(226, 232, 240, 0.8);
+    line-height: 1.25rem;
+}
+
+.caixa-texto-projeto{
+    padding: 1.5rem;
+}
+
+.formulario-contato{
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    padding: 2rem;
+    border: 1 solid var(--vidro);
+    border-radius: 16px;
+
+}
+
+.campo-form{
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid var(--vidro);
+    outline: none;
+
+}
+
+.campo-form:focus {
+    border-color: var(--secundaria);
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.3);
+}
+
+.grupo-form{
+    margin-bottom: 1.5rem;
+
+}
+.botao-form{
+    color: var(--claro);
+    background: linear-gradient(45deg, var(--primaria), var(--secundaria));
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.5 ease;
+}
+
+.botao-form:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 5px rgba(79, 70, 229, 0.4);
+}
+
+.particulas{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    background: 
+    radial-gradient(circle at 10% 20%, var(--primaria) 0%, transparent 20%),
+    radial-gradient(circle at 10% 20%, var(--secundaria) 0%, transparent 20%),
+    var(--escura);
+}
+
+@keyframes flutuar {
+    0%, 100%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-20px);
+    }
+}
+  </style>
+</head>
+
+<body>
+    <div class="particulas"></div>
+    <nav class="navegacao">
+        <ul class="menu">
+            <li><a href="#inicio" class="menu-link">Inicio</a></li>
+            <li><a href="#sobre" class="menu-link">Sobre</a></li>
+            <li><a href="#projetos" class="menu-link">Projetos</a></li>
+            <li><a href="#contatos" class="menu-link">Contato</a></li>
+        </ul>
+    </nav>
+
+    <main id="inicio" class="cabecalho">
+
+        <img src="./img/jose.jpg" alt="foto do José" class="foto">
+        <h1>José Isaac</h1>
+        <p class="texto">Desenvolvedor Fronte End</p>
+
+    </main>
+
+    <section id="sobre" class="sobre">
+        <h2 class="sobre-titulo">Sobre Mim</h2>
+        <div class="sobre-caixa">
+            <p class="sobre-parag">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis accusantium maxime
+                atque nihil in!
+                Aspernatur sequi nostrum magni ratione assumenda eius accusantium similique blanditiis, molestiae
+                inventore exercitationem quas vitae doloribus.</p>
+        </div>
+    </section>
+
+    <section id="projetos" class="projetos">
+        <h2 class="projetos-titulo">Meus Projectos</h2>
+        <div class="projetos-caixa">
+
+            <div class="projetos-card">
+                <img src="./img/proj.png" alt="projeto 1" class="projetos-img">
+                <div class="caixa-texto-projeto">
+                    <h3 class="info-projetos">Agencia Fake</h3>
+                    <p class="parag-projetos">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+                        explicabo,
+                        voluptas est, eum nisi ad </p>
+                </div>
+            </div>
+
+            <div class="projetos-card">
+                <img src="./img/proj.png" alt="projeto 1" class="projetos-img">
+                <div class="caixa-texto-projeto">
+                    <h3 class="info-projetos">Sistema Hospitalar</h3>
+                    <p class="parag-projetos">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+                        explicabo,
+                        voluptas est, eum nisi ad </p>
+                </div>
+            </div>
+
+            <div class="projetos-card">
+                <img src="./img/proj.png" alt="projeto 1" class="projetos-img">
+                <div class="caixa-texto-projeto">
+                    <h3 class="info-projetos">Meu blog</h3>
+                    <p class="parag-projetos">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+                        explicabo,
+                        voluptas est, eum nisi ad </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contatos" class="contatos">
+        <h2 class="contatos-titulo">Entre em Contato</h2>
+        <form action="" class="formulario-contato" id="formulario" onsubmit="enviarwhats(event)">
+            <div class="grupo-form">
+                <input placeholder="Nome" class="campo-form" id="nome">
+            </div>
+            <div class="grupo-form">
+                <textarea class="campo-form" placeholder="Digite sua Mensagem" rows="5" id="mensagem"></textarea>
+            </div>
+
+            <button type="submit" class="botao-form">Enviar Whatsapp</button>
+        </form>
+    </section>
+
+    <script>
+        function enviarwhats(event) {
+
+            event.preventDefault()
+
+            const nome = document.getElementById('nome').value;
+            const mensagem = document.getElementById('mensagem').value;
+            const telefone = '244942767344'
+
+            const texto = `Ola! Me chamo ${nome}, ${mensagem}`
+
+            const msgFormatada = encodeURIComponent(texto)
+
+            const url = `https://wa.me/${telefone}?text=${msgFormatada}`
+
+            window.open(url, '_blank')
+
+        }
+
+    </script>
+</body>
+
+</html>
